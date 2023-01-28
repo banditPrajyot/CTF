@@ -14,6 +14,7 @@ def blindxml():
       try:
         query = etree.fromstring(xml, parser)
         parsed_xml = etree.tostring(query).decode('UTF-8')
+        print(parsed_xml)
         name = query.find('name').text
         if set(name) <= allowed_chars:
           pokemon = pokepy.V2Client().get_pokemon(name)[0]
@@ -33,7 +34,7 @@ def blindxml():
           raise Exception
       except Exception as e:
         print(e)
-        return "Error"
+        return "No Pokemon "+ name
     else:
       return render_template('index.html')
 if __name__ == '__main__':
