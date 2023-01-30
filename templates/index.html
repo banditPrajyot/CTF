@@ -17,7 +17,7 @@
             // setup query
             let pokemon = document.getElementById('pokemon').value;
             let query = '<?xml version="1.0" encoding="UTF-8" ?>'
-            query += '<query><name>' + pokemon + '</name></query>'
+            query += '<query><name>' + encodeURIComponent(pokemon) + '</name></query>'
             
             // send request
             x = new XMLHttpRequest();
